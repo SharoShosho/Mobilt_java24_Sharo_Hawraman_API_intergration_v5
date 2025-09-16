@@ -1,0 +1,51 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:label="Currency Converter"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_convertFragment"
+            app:destination="@id/convertFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_ratesFragment"
+            app:destination="@id/ratesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/convertFragment"
+        android:name="com.example.myapplication.ui.convert.ConvertFragment"
+        android:label="Convert Currency"
+        tools:layout="@layout/fragment_convert">
+        <action
+            android:id="@+id/action_convertFragment_to_resultFragment"
+            app:destination="@id/resultFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.myapplication.ui.result.ResultFragment"
+        android:label="Conversion Result"
+        tools:layout="@layout/fragment_result">
+        <argument
+            android:name="amount"
+            app:argType="float" />
+        <argument
+            android:name="fromCurrency"
+            app:argType="string" />
+        <argument
+            android:name="toCurrency"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ratesFragment"
+        android:name="com.example.myapplication.ui.rates.RatesFragment"
+        android:label="Exchange Rates"
+        tools:layout="@layout/fragment_rates" />
+</navigation>
